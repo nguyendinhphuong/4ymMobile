@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-navbar color="whatsapp">
+    <ion-title>
+      Quản lý bán hàng
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="sale-content">
+  <div [ngSwitch]="tabs">
+    <div  *ngSwitchCase="'tab1'">
+      <ion-item>
+        <ion-label>Từ ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Đến ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="toDate"></ion-datetime>
+      </ion-item>
+
+      <ion-buttons end>
+        <button class="view-button">Xem</button>
+      </ion-buttons>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-50>Ngày</ion-col>
+          <ion-col class="grid-table-col" width-50>Tổng tiền</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-50>17/06/2017</ion-col>
+          <ion-col class="grid-table-col" width-50>100.000</ion-col>
+        </ion-row>
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-50>18/06/2017</ion-col>
+          <ion-col class="grid-table-col" width-50>300.000</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div  *ngSwitchCase="'tab2'">
+      <div style="display: block">
+        <canvas baseChart
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div  *ngSwitchCase="'tab3'">
+      <ion-item>
+        <ion-label>Từ ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Đến ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="toDate"></ion-datetime>
+      </ion-item>
+
+      <ion-buttons end>
+        <button class="view-button">Xem</button>
+      </ion-buttons>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-30>Ngày</ion-col>
+          <ion-col class="grid-table-col" width-30>Hoá đơn</ion-col>
+          <ion-col class="grid-table-col" width-40>Tổng tiền</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-30>17/06/2017</ion-col>
+          <ion-col class="grid-table-col" width-30><a (click)="viewBill()">101212</a></ion-col>
+          <ion-col class="grid-table-col" width-40>100.000</ion-col>
+        </ion-row>
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-30>18/06/2017</ion-col>
+          <ion-col class="grid-table-col" width-30><a (click)="viewBill()">101286</a></ion-col>
+          <ion-col class="grid-table-col" width-40>300.000</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <div padding>
+    <ion-segment [(ngModel)]="tabs">
+      <ion-segment-button value="tab1">
+        Doanh số
+      </ion-segment-button>
+      <ion-segment-button value="tab2">
+        Tỷ trọng
+      </ion-segment-button>
+      <ion-segment-button value="tab3">
+        Lịch sử
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-footer>

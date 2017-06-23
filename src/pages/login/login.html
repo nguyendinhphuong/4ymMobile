@@ -1,0 +1,33 @@
+<ion-content class="login-content auth-content">
+  <ion-row class="intro-image-row">
+    <ion-col center width-64 no-padding class="img-logo">
+      <img src="assets/logo/logo.png" alt="app logo" title="ZaloGym"/>
+    </ion-col>
+  </ion-row>
+  <!-- <h2 class="main-title">Phần mềm quản lý phòng tập Gym</h2> -->
+  <form class="login-form auth-form" [formGroup]="login" (ngSubmit)="doLogin()">
+    <ion-item>
+      <ion-label><ion-icon name="person"></ion-icon></ion-label>
+      <ion-input type="user" placeholder="Tên đăng nhập" formControlName="user"></ion-input>
+    </ion-item>
+    <show-hide-container>
+      <ion-item>
+        <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+        <ion-input type="password" placeholder="Mật khẩu" formControlName="password" show-hide-input></ion-input>
+      </ion-item>
+    </show-hide-container>
+    <button ion-button block class="auth-action-button login-button" type="submit" [disabled]="!login.valid" icon-left>
+      <ion-icon name="log-in"></ion-icon>
+      Đăng nhập</button>
+  </form>
+  <ion-row class="alt-options">
+    <ion-col no-padding width-50>
+
+    </ion-col>
+    <ion-col no-padding width-50>
+      <button ion-button block clear class="forgot-button" (click)="goToForgotPassword()" >
+
+        Quên mật khẩu?</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

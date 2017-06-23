@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="whatsapp">
+    <ion-title>
+      Trần Văn Thông
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="members-content">
+  <ion-row class="img-avatar">
+    <ion-col center width-60>
+      <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg"> </preload-image>
+    </ion-col>
+  </ion-row>
+  <ion-item>
+      <ion-label stacked>Tên: </ion-label>
+      <ion-input readonly="true" value="Trần Văn Thông">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>Điện thoại: </ion-label>
+      <ion-input readonly="true" value="0988888888">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>Địa chỉ: </ion-label>
+      <ion-input readonly="true" value="Hai Bà Trưng, Hà Nội">
+      </ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col width-40 style="padding-left: 16px;">
+      Giới tính:
+    </ion-col>
+    <ion-col width-30>
+      <input type="radio" name="gender" value="male" disabled="true" checked="true"> Nam<br>
+      <!-- <ion-item>
+        <ion-label>Nam </ion-label>
+
+        <ion-radio value="male" checked disabled="true"></ion-radio>
+      </ion-item> -->
+    </ion-col>
+    <ion-col width-30>
+      <input type="radio" name="gender" value="male" disabled="true"> Nữ<br>
+      <!-- <ion-item>
+        <ion-label>Nữ</ion-label>
+        <ion-radio value="female" disabled="true"></ion-radio>
+      </ion-item> -->
+    </ion-col>
+  </ion-row>
+  <ion-item class="fix-border">
+      <ion-label stacked>Gói cước: </ion-label>
+      <ion-input readonly="true" value="Gói tháng">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>Bắt đầu: </ion-label>
+      <ion-input readonly="true" value="01/01/2017">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>Kết thúc: </ion-label>
+      <ion-input readonly="true" value="30/12/2017">
+      </ion-input>
+  </ion-item>
+
+</ion-content>

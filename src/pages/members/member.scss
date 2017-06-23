@@ -1,0 +1,11 @@
+.fix-border  {
+  .item-inner {
+    border-top: 0.55px solid #c8c7cc;
+  }
+}
+
+.img-avatar {
+		@include justify-content(center);
+		margin-top: 15px;
+		margin-top: 5vh;
+}

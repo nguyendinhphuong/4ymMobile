@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar color="whatsapp">
+    <ion-title>
+      Quản lý chấm công
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="chats-page-content">
+  <div [ngSwitch]="tabs">
+    <div  *ngSwitchCase="'tab1'">
+      <ion-item>
+          <ion-label>Chọn tháng: </ion-label>
+          <ion-select [(ngModel)]="selectedMonth" placeholder="--" interface="popover">
+              <ion-option *ngFor="let month of getMonths()" [value]="month">Tháng {{month}}</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-40>Nhân viên</ion-col>
+          <ion-col class="grid-table-col" width-20>Ngày công</ion-col>
+          <ion-col class="grid-table-col" width-20>Đi làm</ion-col>
+          <ion-col class="grid-table-col" width-20>Đi muộn</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-40>Nguyễn Đình Phương</ion-col>
+          <ion-col class="grid-table-col" width-20>24</ion-col>
+          <ion-col class="grid-table-col" width-20>22</ion-col>
+          <ion-col class="grid-table-col" width-20>2</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div  *ngSwitchCase="'tab2'">
+
+    </div>
+    <div  *ngSwitchCase="'tab3'">
+      <ion-item>
+        <ion-label>Từ ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Đến ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="toDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>Nhân viên: </ion-label>
+          <ion-select class="select-box" [(ngModel)]="selectedStaff" placeholder="--" >
+              <ion-option *ngFor="let staff of getStaffs()" [value]="staff">{{staff}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-buttons end>
+      <button class="view-button">Xem</button>
+    </ion-buttons>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-40>Nhân viên</ion-col>
+          <ion-col class="grid-table-col" width-20>Ngày</ion-col>
+          <ion-col class="grid-table-col" width-20>Giờ vào</ion-col>
+          <ion-col class="grid-table-col" width-20>Giờ ra</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-40>Nguyễn Đình Phương</ion-col>
+          <ion-col class="grid-table-col" width-20>31/03/17</ion-col>
+          <ion-col class="grid-table-col" width-20>08:00</ion-col>
+          <ion-col class="grid-table-col" width-20>17:30</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <div padding>
+    <ion-segment [(ngModel)]="tabs">
+      <ion-segment-button value="tab1">
+        Chấm công
+      </ion-segment-button>
+      <ion-segment-button value="tab2">
+        Giấy phép
+      </ion-segment-button>
+      <ion-segment-button value="tab3">
+        Lịch sử
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-footer>

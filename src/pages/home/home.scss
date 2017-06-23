@@ -1,0 +1,42 @@
+home-page {
+  .home-content {
+    .grid-wrapper {
+      margin-top: 20%;
+      padding: 5vh;
+      .grid-icon {
+
+        ion-col {
+          text-align: center;
+        }
+
+        .icon-middle {
+          margin-left:5%;
+          margin-right:5%;
+        }
+
+
+      }
+      .grid-two-icon {
+        @include justify-content(center);
+        ion-col {
+          text-align: center;
+        }
+
+        .icon-left {
+          margin-right:5%;
+        }
+
+        .icon-right {
+          margin-left:5%;
+        }
+      }
+
+      .icon-title {
+        margin-top: 0.2rem;
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,47 @@
+<ion-header class="home-header">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      ZaloGym
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home-content">
+  <!-- <background-image class="image-heading"> -->
+    <!-- <ion-row class="heading-row">
+      <ion-col no-padding width-100>
+        <h2 class="main-title">Oniver.com</h2>
+      </ion-col>
+    </ion-row> -->
+  <!-- </background-image> -->
+  <div class="grid-wrapper">
+    <ion-row class="grid-icon">
+      <ion-col no-padding width-30>
+        <img src="assets/icon/hoivien1.png" (click)="openMember()"/>
+        <h2 class="icon-title">Hội viên</h2>
+      </ion-col>
+      <ion-col class="icon-middle" no-padding width-30>
+        <img src="assets/icon/banhang1.png" (click)="openSale()"/>
+        <h2 class="icon-title">Bán hàng</h2>
+      </ion-col>
+      <ion-col no-padding width-30>
+        <img src="assets/icon/thietbi1.png" (click)="openEquip()"/>
+        <h2 class="icon-title">Thiết bị</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="grid-two-icon">
+      <ion-col class="icon-left" no-padding width-30>
+        <img src="assets/icon/chamcong1.png" (click)="openTimeRecord()"/>
+        <h2 class="icon-title">Chấm công</h2>
+      </ion-col>
+      <ion-col class="icon-right" no-padding width-30>
+        <img src="assets/icon/gopy1.png" (click)="openFeedback()"/>
+        <h2 class="icon-title">Góp ý kiến</h2>
+      </ion-col>
+    </ion-row>
+</div>
+
+</ion-content>

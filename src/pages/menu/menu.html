@@ -1,0 +1,35 @@
+<ion-menu [content]="content" [swipeEnabled]="true">
+  <ion-content class="menu-content">
+    <ion-item class="user-item">
+      <ion-avatar item-left>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg"></preload-image>
+      </ion-avatar>
+      <h2 class="item-title">Nguyen Dinh Phuong</h2>
+      <p class="item-description">phuongnd</p>
+    </ion-item>
+    <ion-list class="menu-list">
+      <button ion-item detail-none (click)="goHome()">
+        <ion-icon name="home" item-left ></ion-icon>
+        Trang chủ
+      </button>
+      <button ion-item detail-none >
+        <ion-icon name="person" item-left></ion-icon>
+        Sửa thông tin cá nhân
+      </button>
+      <button ion-item detail-none>
+        <ion-icon name="lock" item-left></ion-icon>
+        Đổi mật khẩu
+      </button>
+      <button ion-item detail-none>
+        <ion-icon name="settings" item-left></ion-icon>
+        Cài đặt
+      </button>
+      <button ion-item detail-none (click)="doLogout()">
+        <ion-icon name="log-out" item-left></ion-icon>
+        Đăng xuất
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>

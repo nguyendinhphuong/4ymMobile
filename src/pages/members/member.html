@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar color="whatsapp">
+    <ion-title>
+      Quản lý hội viên
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="members-content">
+  <div [ngSwitch]="tabs">
+    <div  *ngSwitchCase="'tab1'">
+      <ion-item>
+          <ion-label>Loại: </ion-label>
+          <ion-select [(ngModel)]="selectedType" placeholder="--" interface="popover">
+              <ion-option [value]="active">Đang hiệu lực</ion-option>
+              <ion-option [value]="inactive">Hết hiệu lực</ion-option>
+              <ion-option [value]="all">Tất cả</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-50>Họ tên</ion-col>
+          <ion-col class="grid-table-col" width-50>Ảnh</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-50><a (click)="openMember()">Trần Văn Bình</a></ion-col>
+          <ion-col class="grid-table-col" width-50>
+            <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg">
+            </preload-image></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div  *ngSwitchCase="'tab2'">
+      <form class="search-form" [formGroup]="search" (ngSubmit)="doSearch()">
+        <ion-row align-items-center>
+          <ion-col width-70>
+            <ion-item>
+              <ion-label>Tên:</ion-label>
+              <ion-input type="text" formControlName="member"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col width-30>
+            <button class="view-button" type="submit" [disabled]="!search.valid" icon-left>
+              <ion-icon name="search"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </form>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-50>Họ tên</ion-col>
+          <ion-col class="grid-table-col" width-50>Ảnh</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-50><a (click)="openMember()">Trần Văn Bình</a></ion-col>
+          <ion-col class="grid-table-col" width-50>
+            <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg">
+            </preload-image></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div  *ngSwitchCase="'tab3'">
+      <ion-item>
+        <ion-label>Từ ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="fromDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Đến ngày:</ion-label>
+        <ion-datetime placeholder="--" displayFormat="MM/DD/YYYY" [(ngModel)]="toDate"></ion-datetime>
+      </ion-item>
+      <ion-buttons end>
+      <button class="view-button">Xem</button>
+    </ion-buttons>
+
+      <ion-grid text-start>
+        <ion-row  class="grid-table-row header" text-center>
+          <ion-col class="grid-table-col" width-50>Ngày</ion-col>
+          <ion-col class="grid-table-col" width-50>Tổng tiền</ion-col>
+        </ion-row>
+
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-50>17/06/2017</ion-col>
+          <ion-col class="grid-table-col" width-50>100.000</ion-col>
+        </ion-row>
+        <ion-row   class="grid-table-row" >
+          <ion-col class="grid-table-col" width-50>18/06/2017</ion-col>
+          <ion-col class="grid-table-col" width-50>300.000</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <div padding>
+    <ion-segment [(ngModel)]="tabs">
+      <ion-segment-button value="tab1">
+        Danh sách
+      </ion-segment-button>
+      <ion-segment-button value="tab2">
+        Tra cứu
+      </ion-segment-button>
+      <ion-segment-button value="tab3">
+        Doanh thu
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-footer>
