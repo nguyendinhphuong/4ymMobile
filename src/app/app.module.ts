@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { PreloadImage } from '../components/preload-image/preload-image';
 import { ShowHideContainer } from '../components/show-hide-password/show-hide-container';
@@ -21,10 +22,14 @@ import { ForgotPasswordPage } from '../pages/forgotPassword/forgotPassword';
 import { ResetPasswordPage } from '../pages/forgotPassword/resetPassword';
 import { ViewMemberPage } from '../pages/members/viewMember';
 import { ViewBillPage } from '../pages/sale/viewBill';
+import { RestMan } from '../common/restRequest';
 
 import { ChartsModule } from 'ng2-charts';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+
+import { EditProfilePage } from '../pages/profile/editProfile';
+import { ChangePasswordPage } from '../pages/profile/changePassword';
 
 @NgModule({
   declarations: [
@@ -43,9 +48,12 @@ import { LoginPage } from '../pages/login/login';
     ForgotPasswordPage,
     ResetPasswordPage,
     ViewMemberPage,
-    ViewBillPage
+    ViewBillPage,
+    EditProfilePage,
+    ChangePasswordPage
   ],
   imports: [
+    IonicStorageModule.forRoot(),
     ChartsModule,
     HttpModule,
     BrowserModule,
@@ -65,9 +73,12 @@ import { LoginPage } from '../pages/login/login';
     ForgotPasswordPage,
     ResetPasswordPage,
     ViewMemberPage,
-    ViewBillPage
+    ViewBillPage,
+    EditProfilePage,
+    ChangePasswordPage
   ],
   providers: [
+    RestMan,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

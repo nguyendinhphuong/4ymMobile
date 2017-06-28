@@ -1,58 +1,62 @@
 login-page {
-	.intro-image-row
-	{
-		@include justify-content(center);
-		margin-top: 20px;
-		margin-top: 5vh;
-	}
-
-	.img-logo {
-		text-align: center;
-		@include justify-content(center);
-	}
-
-	.main-title
-	{
-		margin: 15px 20px 20px;
-		font-size: 2rem;
-		font-weight: 600;
-		font-style: italic;
-		text-align: center;
-		color: #387ef5;
-	}
-
-	.login-content
-	{
-		.alt-options
+	.login-content {
+		background-color: color($colors, background, base);
+		.intro-image-row
 		{
-			.button
-			{
-				margin: 0px;
-				padding: 0px;
-				font-size: 1.4rem;
-				text-transform: none;
-			}
+			@include justify-content(center);
+			margin-top: 20px;
+			margin-top: 5vh;
+		}
 
-			.forgot-button
-			{
-				color: $white-d;
+		.img-logo {
+			text-align: center;
+			@include justify-content(center);
+		}
 
-				.button-inner
+		.main-title
+		{
+			margin: 15px 20px 20px;
+			font-size: 2rem;
+			font-weight: 600;
+			font-style: italic;
+			text-align: center;
+			color: #387ef5;
+		}
+
+		.login-content
+		{
+			.alt-options
+			{
+				.button
 				{
-					@include justify-content(flex-end);
+					margin: 0px;
+					padding: 0px;
+					font-size: 1.4rem;
+					text-transform: none;
 				}
-			}
 
-			.signup-button
-			{
-				font-weight: 500;
-				color: $theme-color-2;
-
-				.button-inner
+				.forgot-button
 				{
-					@include justify-content(flex-end);
+					color: $white-d;
+
+					.button-inner
+					{
+						@include justify-content(flex-end);
+					}
+				}
+
+				.signup-button
+				{
+					font-weight: 500;
+					color: $theme-color-2;
+
+					.button-inner
+					{
+						@include justify-content(flex-end);
+					}
 				}
 			}
 		}
 	}
+
 }

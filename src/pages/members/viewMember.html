@@ -1,9 +1,15 @@
 <ion-header>
   <ion-navbar color="whatsapp">
     <ion-title>
-      Trần Văn Thông
+      {{member.Name}}
     </ion-title>
     <ion-buttons end>
+      <button type="submit" form="memberForm" ion-button >
+        <ion-icon name="done-all" ></ion-icon>
+      </button>
+      <!-- <button type="submit" form="memberForm" ion-button (click)="enableUpdate()">
+        <ion-icon name="create" ></ion-icon>
+      </button> -->
       <button ion-button icon-only (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
       </button>
@@ -12,60 +18,66 @@
 </ion-header>
 
 <ion-content class="members-content">
-  <ion-row class="img-avatar">
-    <ion-col center width-60>
-      <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg"> </preload-image>
-    </ion-col>
-  </ion-row>
-  <ion-item>
-      <ion-label stacked>Tên: </ion-label>
-      <ion-input readonly="true" value="Trần Văn Thông">
-      </ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label stacked>Điện thoại: </ion-label>
-      <ion-input readonly="true" value="0988888888">
-      </ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label stacked>Địa chỉ: </ion-label>
-      <ion-input readonly="true" value="Hai Bà Trưng, Hà Nội">
-      </ion-input>
-  </ion-item>
-  <ion-row>
-    <ion-col width-40 style="padding-left: 16px;">
-      Giới tính:
-    </ion-col>
-    <ion-col width-30>
-      <input type="radio" name="gender" value="male" disabled="true" checked="true"> Nam<br>
-      <!-- <ion-item>
-        <ion-label>Nam </ion-label>
-
-        <ion-radio value="male" checked disabled="true"></ion-radio>
-      </ion-item> -->
-    </ion-col>
-    <ion-col width-30>
-      <input type="radio" name="gender" value="male" disabled="true"> Nữ<br>
-      <!-- <ion-item>
-        <ion-label>Nữ</ion-label>
-        <ion-radio value="female" disabled="true"></ion-radio>
-      </ion-item> -->
-    </ion-col>
-  </ion-row>
-  <ion-item class="fix-border">
-      <ion-label stacked>Gói cước: </ion-label>
-      <ion-input readonly="true" value="Gói tháng">
-      </ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label stacked>Bắt đầu: </ion-label>
-      <ion-input readonly="true" value="01/01/2017">
-      </ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label stacked>Kết thúc: </ion-label>
-      <ion-input readonly="true" value="30/12/2017">
-      </ion-input>
-  </ion-item>
-
+  <form class="member-form"  id="memberForm" [formGroup]="memberInfo" (ngSubmit)="doUpdate()">
+    <ion-row class="img-avatar">
+      <ion-col center width-60>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg"> </preload-image>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+        <ion-label stacked>Tên: </ion-label>
+        <ion-input type="text" formControlName="name">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Điện thoại: </ion-label>
+        <ion-input type="number" formControlName="mobile">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Địa chỉ: </ion-label>
+        <ion-input type="text" formControlName="address">
+        </ion-input>
+    </ion-item>
+    <ion-row formControlName="gender" radio-group [(ngModel)]="genderValue" >
+      <ion-col width-40 style="padding-left: 16px;">
+        Giới tính:
+      </ion-col>
+      <ion-col width-30>
+        <ion-item class="no-border">
+          <ion-label> Nam</ion-label>
+          <ion-radio ion-radio value="M"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col width-30>
+        <ion-item class="no-border">
+          <ion-label> Nữ</ion-label>
+          <ion-radio ion-radio value="F"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-item class="fix-border">
+        <ion-label stacked>Gói cước: </ion-label>
+        <ion-input readonly="true" value="Gói tháng">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Bắt đầu: </ion-label>
+        <ion-input readonly="true" [value]="member.RegisterDate">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Kết thúc: </ion-label>
+        <ion-input readonly="true" value="30/12/2017">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Trạng thái: </ion-label>
+        <ion-select formControlName="status"  interface="popover">
+          <ion-option value="0">Đang hiệu lực</ion-option>
+          <ion-option value="1">Hết hiệu lực</ion-option>
+        </ion-select>
+    </ion-item>
+  </form>
+  <br/>
 </ion-content>

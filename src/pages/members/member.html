@@ -11,10 +11,10 @@
     <div  *ngSwitchCase="'tab1'">
       <ion-item>
           <ion-label>Loại: </ion-label>
-          <ion-select [(ngModel)]="selectedType" placeholder="--" interface="popover">
-              <ion-option [value]="active">Đang hiệu lực</ion-option>
-              <ion-option [value]="inactive">Hết hiệu lực</ion-option>
-              <ion-option [value]="all">Tất cả</ion-option>
+          <ion-select [(ngModel)]="selectedType"  interface="popover" (ionChange)="onSelectChange($event)">
+              <ion-option value="active">Đang hiệu lực</ion-option>
+              <ion-option value="inactive">Hết hiệu lực</ion-option>
+              <ion-option value="all" checked="true">Tất cả</ion-option>
           </ion-select>
       </ion-item>
 
@@ -24,8 +24,8 @@
           <ion-col class="grid-table-col" width-50>Ảnh</ion-col>
         </ion-row>
 
-        <ion-row   class="grid-table-row" >
-          <ion-col class="grid-table-col" width-50><a (click)="openMember()">Trần Văn Bình</a></ion-col>
+        <ion-row   class="grid-table-row" *ngFor="let member of members.listMember">
+          <ion-col class="grid-table-col" width-50><a (click)="openMember(member)">{{member.Name}}</a></ion-col>
           <ion-col class="grid-table-col" width-50>
             <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg">
             </preload-image></ion-col>
@@ -37,8 +37,8 @@
         <ion-row align-items-center>
           <ion-col width-70>
             <ion-item>
-              <ion-label>Tên:</ion-label>
-              <ion-input type="text" formControlName="member"></ion-input>
+              <ion-label>Tìm:</ion-label>
+              <ion-input type="text" formControlName="textSearch" clearInput></ion-input>              
             </ion-item>
           </ion-col>
           <ion-col width-30>
@@ -49,14 +49,14 @@
         </ion-row>
       </form>
 
-      <ion-grid text-start>
+      <ion-grid text-start *ngIf="searchResult.listMember.length > 0">
         <ion-row  class="grid-table-row header" text-center>
           <ion-col class="grid-table-col" width-50>Họ tên</ion-col>
           <ion-col class="grid-table-col" width-50>Ảnh</ion-col>
         </ion-row>
 
-        <ion-row   class="grid-table-row" >
-          <ion-col class="grid-table-col" width-50><a (click)="openMember()">Trần Văn Bình</a></ion-col>
+        <ion-row   class="grid-table-row" *ngFor="let member of searchResult.listMember">
+          <ion-col class="grid-table-col" width-50><a (click)="openMember(member)">{{member.Name}}</a></ion-col>
           <ion-col class="grid-table-col" width-50>
             <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg">
             </preload-image></ion-col>

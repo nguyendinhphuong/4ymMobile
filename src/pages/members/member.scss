@@ -1,11 +1,25 @@
-.fix-border  {
-  .item-inner {
-    border-top: 0.55px solid #c8c7cc;
-  }
-}
+member-page {
+  .members-content {
+    background-color: color($colors, background, base);
 
-.img-avatar {
-		@include justify-content(center);
-		margin-top: 15px;
-		margin-top: 5vh;
+    .fix-border  {
+      .item-inner {
+        border-top: 0.55px solid #c8c7cc;
+      }
+    }
+
+    .img-avatar {
+    		@include justify-content(center);
+    		margin-top: 15px;
+    		margin-top: 5vh;
+    }
+
+    .no-border {
+      .item-inner {
+        border-bottom: none !important;
+      }
+    }
+
+
+  }
 }

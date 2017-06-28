@@ -1,5 +1,7 @@
 home-page {
   .home-content {
+    background-color: color($colors, background, base);
+    
     .grid-wrapper {
       margin-top: 20%;
       padding: 5vh;

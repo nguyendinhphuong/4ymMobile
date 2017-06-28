@@ -1,0 +1,11 @@
+editProfile-page {
+  .center {
+    text-align: center;
+  }
+
+  .profile-content {
+    background-color: color($colors, background, base);
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+}

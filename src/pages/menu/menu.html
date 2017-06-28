@@ -1,22 +1,22 @@
-<ion-menu [content]="content" [swipeEnabled]="true">
+<ion-menu [content]="content" [swipeEnabled]="true" (ionOpen)="updateUserInfo()">
   <ion-content class="menu-content">
     <ion-item class="user-item">
       <ion-avatar item-left>
         <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg"></preload-image>
       </ion-avatar>
-      <h2 class="item-title">Nguyen Dinh Phuong</h2>
-      <p class="item-description">phuongnd</p>
+      <h2 class="item-title" *ngIf="userInfo">{{userInfo.FullName}}</h2>
+      <p class="item-description" *ngIf="userInfo">{{userInfo.UserName}}</p>
     </ion-item>
     <ion-list class="menu-list">
       <button ion-item detail-none (click)="goHome()">
         <ion-icon name="home" item-left ></ion-icon>
         Trang chủ
       </button>
-      <button ion-item detail-none >
+      <button ion-item detail-none (click)="updateProfile()">
         <ion-icon name="person" item-left></ion-icon>
         Sửa thông tin cá nhân
       </button>
-      <button ion-item detail-none>
+      <button ion-item detail-none (click)="changePassword()">
         <ion-icon name="lock" item-left></ion-icon>
         Đổi mật khẩu
       </button>

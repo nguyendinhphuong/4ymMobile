@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="whatsapp">
+    <ion-title>
+      Sửa thông tin cá nhân
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="profile-content">
+  <form class="userProfile-form"  [formGroup]="profile" (ngSubmit)="doUpdate()">
+    <ion-row class="img-avatar">
+      <ion-col center width-60>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" src="../assets/image/100x100Notification1.jpeg"> </preload-image>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+        <ion-label stacked>Họ tên: </ion-label>
+        <ion-input type="text" formControlName="fullName">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Email: </ion-label>
+        <ion-input type="text" formControlName="email">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Số điện thoại: </ion-label>
+        <ion-input type="number" formControlName="mobile">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Địa chỉ: </ion-label>
+        <ion-input type="text" formControlName="address">
+        </ion-input>
+    </ion-item>
+    <ion-row formControlName="gender" radio-group [(ngModel)]="genderValue" >
+      <ion-col width-30 style="padding-left: 16px;">
+        Giới tính:
+      </ion-col>
+      <ion-col width-35>
+        <ion-item class="no-border">
+          <ion-label> Nam</ion-label>
+          <ion-radio ion-radio value="M"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col width-35>
+        <ion-item class="no-border">
+          <ion-label> Nữ</ion-label>
+          <ion-radio ion-radio value="F"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col  width-80>
+        <ion-buttons class="center">
+          <button ion-button type="button" (click)="close()">ĐÓNG</button>
+          <button ion-button type="submit" [disabled]="!profile.valid">CẬP NHẬT</button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </form>
+  <br/>
+</ion-content>
